@@ -43,6 +43,7 @@
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-prettier": "^3.4.1",
     "jest": "^27.3.0",
+    "nodemon": "^2.0.15",
     "prettier": "^2.4.1",
     "source-map-support": "^0.5.20",
     "supertest": "^6.1.6",
