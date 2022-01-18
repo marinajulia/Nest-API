@@ -2,6 +2,8 @@ import { Body, Controller, Delete, Get, Header, HttpCode, HttpStatus, Param, Pos
 import { Observable, of } from 'rxjs';
 import { CreateCatDto } from './Dto/CreateCatDto';
 import express, { Request, Response } from 'express';
+import { CatsService } from './cats.service';
+import { Cat } from './interfaces/cat.interface';
 
 @Controller('cats')
 export class CatsController {
@@ -79,4 +81,18 @@ export class CatsController {
         res.status(HttpStatus.OK); //essa é a melhor maneira de retorno pois não depende outra biblioteca
         return [];
     }
+}
+@Controller('catswithService')
+export class CatsControllerWithService {
+  constructor(private catsService: CatsService) {}
+
+  @Post()
+  async create(@Body() createCatDto: CreateCatDto) {
+    this.catsService.create(createCatDto);
+  }
+
+  @Get()
+  async findAll(): Promise<Cat[]> {
+    return this.catsService.findAll();
+  }
 }
