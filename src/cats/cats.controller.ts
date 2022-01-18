@@ -82,17 +82,18 @@ export class CatsController {
         return [];
     }
 }
+
 @Controller('catswithService')
 export class CatsControllerWithService {
-  constructor(private catsService: CatsService) {}
+    constructor(private catsService: CatsService) { }
 
-  @Post()
-  async create(@Body() createCatDto: CreateCatDto) {
-    this.catsService.create(createCatDto);
-  }
+    @Post()
+    async create(@Body() createCatDto: CreateCatDto) {
+        this.catsService.create(createCatDto);
+    }
 
-  @Get()
-  async findAll(): Promise<Cat[]> {
-    return this.catsService.findAll();
-  }
+    @Get()
+    async findAll(): Promise<Cat[]> {
+        return this.catsService.findAll();
+    }
 }
